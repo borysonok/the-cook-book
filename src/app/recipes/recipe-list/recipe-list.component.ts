@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 @Component({
   selector: 'app-recipe-list',
-  templateUrl: './recipe-list.component.html',
-  styleUrls: ['./recipe-list.component.css']
+  templateUrl: './recipe-list.component.html'
 })
 export class RecipeListComponent implements OnInit {
 
@@ -15,14 +14,15 @@ export class RecipeListComponent implements OnInit {
     new Recipe(
       'A Test_02 Recipe',
       'This is simply a test_02',
+      'https://elavegan.com/wp-content/uploads/2018/01/peanut-butter-noodles-vegan-gluten-free-healthy.jpg'),
+    new Recipe(
+      'A Test_03 Recipe',
+      'This is simply a test_03',
       'https://elavegan.com/wp-content/uploads/2018/01/peanut-butter-noodles-vegan-gluten-free-healthy.jpg')
   ];
 
-  constructor() {
+  constructor() { }
 
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

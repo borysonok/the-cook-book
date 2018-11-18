@@ -5,6 +5,16 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
 
+  public showShoppingList = false;
+  public showRecipes = true;
 
+  public displayShoppingList() {
+    this.showShoppingList = true;
+    this.showRecipes = false;
+  }
 
+  public displayRecipes() {
+    this.showShoppingList = false;
+    this.showRecipes = true;
+  }
 }

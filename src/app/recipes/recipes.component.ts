@@ -5,6 +5,10 @@ import { Component } from "@angular/core";
 })
 export class RecipesComponent {
 
+  public selectedRecipe = null;
 
+  public showSelectedRecipeDetails(recipe) {
+    this.selectedRecipe = recipe;
+  }
 
 }

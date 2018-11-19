@@ -4,9 +4,7 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <div *ngFor="let recipe of recipes">
-        <app-recipe-item [recipe] = "recipe"></app-recipe-item>
-      </div>
+      <app-recipe-item *ngFor="let _recipe of recipes" [recipe]="_recipe" (onSelectRecipe)="recipeWasSelected($event)"></app-recipe-item>
     </div>
   </div>
 </div>

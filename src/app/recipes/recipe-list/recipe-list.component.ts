@@ -1,35 +1,18 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html'
 })
 export class RecipeListComponent implements OnInit {
 
-  @Output() public onRecipeWasSelected = new EventEmitter();
+  public recipes: Recipe[];
 
-  recipes: Recipe[] = [
-    new Recipe(
-      'A Test_01 Recipe',
-      'This is simply a test_01',
-      'https://elavegan.com/wp-content/uploads/2018/01/peanut-butter-noodles-vegan-gluten-free-healthy.jpg'),
-    new Recipe(
-      'A Test_02 Recipe',
-      'This is simply a test_02',
-      'https://vignette.wikia.nocookie.net/fallout/images/3/3f/Cooked_softshell_meat.png/revision/latest?cb=20151225082624'),
-    new Recipe(
-      'A Test_03 Recipe',
-      'This is simply a test_03',
-      'https://tindrumasiankitchen.com/wp-content/uploads/2017/08/lo-men.png')
-  ];
+  constructor(private recipeService: RecipeService) { }
 
-  constructor() { }
-
-  ngOnInit() { }
-
-  public recipeWasSelected(recipe) { 
-    console.log("inside recipe-list. Event is: ", recipe);
-    this.onRecipeWasSelected.emit(recipe);
+  ngOnInit() {
+    this.recipes = this.recipeService.getRecipes();
   }
 
 }

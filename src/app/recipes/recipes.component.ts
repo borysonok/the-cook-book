@@ -1,14 +1,21 @@
 import { Component } from "@angular/core";
+import { RecipeService } from "./recipe.service";
+import { Recipe } from "./recipe.model";
 @Component({
   selector: "app-recipes",
-  templateUrl: "./recipes.component.html"
+  templateUrl: "./recipes.component.html",
+  providers: [RecipeService]
 })
 export class RecipesComponent {
 
-  public selectedRecipe = null;
+  public selectedRecipe: Recipe = null;
 
-  public showSelectedRecipeDetails(recipe) {
-    this.selectedRecipe = recipe;
+  constructor(private recipeService: RecipeService) { }
+
+  ngOnInit() {
+    this.recipeService.recipeSelected.subscribe((recipe: Recipe) => {
+      this.selectedRecipe = recipe;
+    });
   }
 
 }
